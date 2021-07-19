@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Switch, Link, Route } from "react-router-dom";
 import MovieList from "./Movies/MovieList.js";
+import Movie from "./Movies/Movie.js";
 
 import SavedList from "./Movies/SavedList";
 
@@ -40,10 +41,12 @@ export default function App() {
       />
 
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <MovieList movies={movieList} />
         </Route>
-        <Route path="/movies/:movieId"></Route>
+        <Route path="/movies/:id">
+          <Movie />
+        </Route>
       </Switch>
     </div>
   );
